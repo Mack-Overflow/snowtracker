@@ -1,0 +1,3 @@
+engineStrict: false
+allowBuilds:
+  esbuild: true

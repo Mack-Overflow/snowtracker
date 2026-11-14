@@ -1,0 +1,527 @@
+[
+	{
+		"tempC": -20,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -19.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -19.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -19.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -19,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -18.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -18.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -18.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -18,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -17.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -17.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -17.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -17,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -16.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -16.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -16.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -16,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -15.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -15.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -15.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -15,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -14.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -14.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -14.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -14,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -13.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -13.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -13.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -13,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -12.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -12.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -12.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -12,
+		"snowShare": 1,
+		"snowCmPerMm": 1.5
+	},
+	{
+		"tempC": -11.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.4875
+	},
+	{
+		"tempC": -11.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.475
+	},
+	{
+		"tempC": -11.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.4625
+	},
+	{
+		"tempC": -11,
+		"snowShare": 1,
+		"snowCmPerMm": 1.45
+	},
+	{
+		"tempC": -10.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.4375
+	},
+	{
+		"tempC": -10.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.425
+	},
+	{
+		"tempC": -10.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.4125
+	},
+	{
+		"tempC": -10,
+		"snowShare": 1,
+		"snowCmPerMm": 1.4
+	},
+	{
+		"tempC": -9.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.3875
+	},
+	{
+		"tempC": -9.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.375
+	},
+	{
+		"tempC": -9.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.3625
+	},
+	{
+		"tempC": -9,
+		"snowShare": 1,
+		"snowCmPerMm": 1.35
+	},
+	{
+		"tempC": -8.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.3375
+	},
+	{
+		"tempC": -8.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.325
+	},
+	{
+		"tempC": -8.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.3125
+	},
+	{
+		"tempC": -8,
+		"snowShare": 1,
+		"snowCmPerMm": 1.3
+	},
+	{
+		"tempC": -7.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.2875
+	},
+	{
+		"tempC": -7.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.275
+	},
+	{
+		"tempC": -7.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.2625
+	},
+	{
+		"tempC": -7,
+		"snowShare": 1,
+		"snowCmPerMm": 1.25
+	},
+	{
+		"tempC": -6.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.2375
+	},
+	{
+		"tempC": -6.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.225
+	},
+	{
+		"tempC": -6.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.2125
+	},
+	{
+		"tempC": -6,
+		"snowShare": 1,
+		"snowCmPerMm": 1.2
+	},
+	{
+		"tempC": -5.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.1875
+	},
+	{
+		"tempC": -5.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.175
+	},
+	{
+		"tempC": -5.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.1625
+	},
+	{
+		"tempC": -5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.15
+	},
+	{
+		"tempC": -4.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.1375
+	},
+	{
+		"tempC": -4.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.125
+	},
+	{
+		"tempC": -4.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.1125
+	},
+	{
+		"tempC": -4,
+		"snowShare": 1,
+		"snowCmPerMm": 1.1
+	},
+	{
+		"tempC": -3.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.0875
+	},
+	{
+		"tempC": -3.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.075
+	},
+	{
+		"tempC": -3.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.0625
+	},
+	{
+		"tempC": -3,
+		"snowShare": 1,
+		"snowCmPerMm": 1.05
+	},
+	{
+		"tempC": -2.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1.0375
+	},
+	{
+		"tempC": -2.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1.025
+	},
+	{
+		"tempC": -2.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1.0125
+	},
+	{
+		"tempC": -2,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -1.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -1.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -1.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -1,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -0.75,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -0.5,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": -0.25,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 0,
+		"snowShare": 1,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 0.25,
+		"snowShare": 0.875,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 0.5,
+		"snowShare": 0.75,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 0.75,
+		"snowShare": 0.625,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 1,
+		"snowShare": 0.5,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 1.25,
+		"snowShare": 0.375,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 1.5,
+		"snowShare": 0.25,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 1.75,
+		"snowShare": 0.125,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 2,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 2.25,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 2.5,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 2.75,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 3,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 3.25,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 3.5,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 3.75,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 4,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 4.25,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 4.5,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 4.75,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 5,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 5.25,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 5.5,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 5.75,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	},
+	{
+		"tempC": 6,
+		"snowShare": 0,
+		"snowCmPerMm": 1
+	}
+]
