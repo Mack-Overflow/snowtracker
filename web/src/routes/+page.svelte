@@ -72,6 +72,35 @@
 		goto(`?${placeParams(p)}`);
 	}
 
+	const canLocate = typeof navigator !== 'undefined' && 'geolocation' in navigator;
+	let locating = $state(false);
+	let locateError = $state('');
+
+	// Only ever called from a click, so the browser's permission prompt is the user's choice.
+	function locate() {
+		locating = true;
+		locateError = '';
+		navigator.geolocation.getCurrentPosition(
+			(pos) => {
+				locating = false;
+				// Two decimals is about a kilometre: well inside one model grid cell, and it
+				// keeps the exact position out of the URL and stops GPS jitter from filling
+				// the recent list with near-duplicates.
+				const lat = Math.round(pos.coords.latitude * 100) / 100;
+				const lon = Math.round(pos.coords.longitude * 100) / 100;
+				select({ name: 'My location', lat, lon });
+			},
+			(err) => {
+				locating = false;
+				locateError =
+					err.code === err.PERMISSION_DENIED
+						? 'Location sharing is turned off for this site. Allow it in your browser, or search for a place instead.'
+						: 'Could not find your location. Try again, or search for a place instead.';
+			},
+			{ enableHighAccuracy: false, timeout: 10_000, maximumAge: 5 * 60_000 }
+		);
+	}
+
 	const bandIndex = $derived(
 		data ? Math.max(data.bands.findIndex((b) => b.id === bandId), 0) : 0
 	);
@@ -131,6 +160,30 @@
 					<section>
 						<h2 class="mb-2 text-xs font-medium tracking-wide text-(--text-2) uppercase">{title}</h2>
 						<div class="flex flex-wrap gap-2">
+							{#if title === 'Try' && canLocate}
+								<button
+									type="button"
+									onclick={locate}
+									disabled={locating}
+									class="flex items-center gap-1.5 rounded-full border border-(--accent) bg-(--surface) px-4 py-2 text-sm disabled:opacity-60"
+								>
+									<svg
+										width="14"
+										height="14"
+										viewBox="0 0 16 16"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										aria-hidden="true"
+									>
+										<circle cx="8" cy="8" r="4.5" />
+										<circle cx="8" cy="8" r="1" fill="currentColor" />
+										<path d="M8 1v2.5M8 12.5V15M1 8h2.5M12.5 8H15" />
+									</svg>
+									{locating ? 'Locating…' : 'Use my location'}
+								</button>
+							{/if}
 							{#each places as p (`${p.lat},${p.lon}`)}
 								<button
 									type="button"
@@ -142,6 +195,9 @@
 								</button>
 							{/each}
 						</div>
+						{#if title === 'Try'}
+							<p class="mt-2 text-sm text-(--text-2)" aria-live="polite">{locateError}</p>
+						{/if}
 					</section>
 				{/if}
 			{/each}

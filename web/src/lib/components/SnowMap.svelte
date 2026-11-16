@@ -268,7 +268,8 @@
 				container,
 				style: `https://tiles.openfreemap.org/styles/${dark ? 'dark' : 'positron'}`,
 				center: [lon, lat],
-				zoom: 8,
+				// Roughly 65 km across on a desktop-width map at mid-latitudes.
+				zoom: 9.6,
 				minZoom: 6,
 				maxZoom: 12,
 				// The raster is fitted to an upright, flat view.
