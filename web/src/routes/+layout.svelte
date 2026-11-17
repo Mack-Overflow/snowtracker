@@ -8,7 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Precip Calendar</title>
+	<title>Pow Tracker</title>
 </svelte:head>
 
 {@render children()}

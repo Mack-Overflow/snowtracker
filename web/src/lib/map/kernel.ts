@@ -122,6 +122,16 @@ export class SnowKernel {
 		return this.pixels();
 	}
 
+	/** The most snow any pixel gets over the whole forecast, in cm. */
+	peakCm(): number {
+		this.sumThrough(this.steps - 1);
+		const { width, height } = this.raster;
+		const accum = new Float32Array(this.k.memory.buffer, this.k.accumPtr(), width * height);
+		let peak = 0;
+		for (let i = 0; i < accum.length; i++) if (accum[i] > peak) peak = accum[i];
+		return peak;
+	}
+
 	/** Values under one raster pixel. `snowCm` and `rainMm` are for hour t
 	 *  alone; `totalCm` is the snow from the first hour through hour t, and
 	 *  `runTotalCm` the snow over the whole forecast. */

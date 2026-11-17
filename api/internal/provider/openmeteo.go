@@ -29,7 +29,7 @@ type Provider interface {
 	Ensemble(ctx context.Context, lat, lon, elevation float64) (*forecast.Ensemble, error)
 }
 
-const userAgent = "precip-calendar/0.1"
+const userAgent = "pow-tracker/0.1"
 
 // OpenMeteo talks to the keyless Open-Meteo APIs (CC BY 4.0, non-commercial tier).
 type OpenMeteo struct {

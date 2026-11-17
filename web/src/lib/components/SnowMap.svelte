@@ -22,7 +22,11 @@
 	}
 
 	// The view and forecast chosen last, kept while moving from place to place.
-	const remembered: { mode: 'radar' | 'topo'; model: 'mean' | 'run' } = { mode: 'radar', model: 'mean' };
+	const remembered: { mode: 'radar' | 'topo'; model: 'mean' | 'run'; speed: number } = {
+		mode: 'radar',
+		model: 'mean',
+		speed: 1
+	};
 </script>
 
 <script lang="ts">
@@ -32,6 +36,7 @@
 	import { fetchField, gridFor, type Bounds, type Field, type FieldModel } from '../map/field';
 	import { SnowKernel, type RGB } from '../map/kernel';
 	import { buildRaster, type DemTiles } from '../map/raster';
+	import { bandColours, bandEdges } from '../map/bands';
 
 	let {
 		lat,
@@ -51,7 +56,9 @@
 	type Mode = 'radar' | 'topo';
 
 	const MAX_RASTER_WIDTH = 720;
+	/** One forecast hour per frame at 1×. */
 	const FRAME_MS = 110;
+	const SPEEDS = [0.25, 0.5, 1, 2, 4];
 
 	const dark = typeof matchMedia !== 'undefined' && matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -61,24 +68,20 @@
 		? { snow: [86, 160, 245], rain: [70, 190, 90] }
 		: { snow: [36, 108, 200], rain: [0, 131, 0] };
 
-	// Topo: ten snow tiers. Lightness runs one way only, so deeper always reads
-	// as stronger (darker on the light map, brighter on the dark one), and the
-	// hue drifts from blue to violet over the top tiers to keep them apart.
-	const tierColours: RGB[] = dark
-		? [[1, 64, 133], [8, 80, 160], [33, 99, 180], [52, 117, 200], [71, 136, 221], [102, 152, 243], [141, 168, 253], [178, 186, 255], [211, 204, 255], [238, 225, 255]]
-		: [[196, 225, 255], [162, 203, 255], [128, 182, 253], [94, 160, 247], [74, 139, 224], [67, 115, 203], [67, 91, 181], [68, 66, 157], [65, 46, 122], [55, 30, 85]];
-	// Round numbers in whichever unit is showing.
-	const bands = $derived(
-		(system === 'metric'
-			? [1, 2, 5, 10, 15, 20, 30, 50, 75, 100].map((cm) => ({ cm, label: String(cm) }))
-			: [0.5, 1, 2, 4, 6, 8, 12, 18, 24, 36].map((inches) => ({ cm: inches * 2.54, label: String(inches) }))
-		).map((b, i, all) => ({
-			...b,
-			colour: tierColours[i],
+	// Topo: bands scaled to the biggest total on the map, finer at the low end
+	// and coarser at the top (see map/bands.ts).
+	const UNIT_CM = { metric: 1, imperial: 2.54 };
+	const bands = $derived.by(() => {
+		const edges = bandEdges(peakCm / UNIT_CM[system], system);
+		const colours = bandColours(edges.length, dark);
+		return edges.map((v, i) => ({
+			cm: v * UNIT_CM[system],
+			label: String(v),
+			colour: colours[i],
 			// Slightly see-through so the terrain shading still reads underneath.
-			alpha: 0.7 + (0.22 * i) / (all.length - 1)
-		}))
-	);
+			alpha: 0.68 + (0.26 * i) / Math.max(edges.length - 1, 1)
+		}));
+	});
 	const css = (c: RGB, alpha = 1) => `rgb(${c.join(' ')} / ${alpha})`;
 
 	let container: HTMLDivElement;
@@ -90,6 +93,8 @@
 	let error = $state('');
 	let field = $state.raw<Field | null>(null);
 	let kernel = $state.raw<SnowKernel | null>(null);
+	let peakCm = $state(0);
+	let speed = $state(remembered.speed);
 	// A point on the map, with where it currently sits in the map's box (CSS px).
 	type Spot = { lat: number; lon: number; x: number; y: number };
 	let probe = $state<Spot | null>(null);
@@ -185,6 +190,7 @@
 			}
 			if (!kernel || t < next.from || t > next.steps - 1) t = next.from;
 			field = loaded;
+			peakCm = next.peakCm();
 			kernel = next;
 			error = '';
 		} catch (e) {
@@ -213,7 +219,7 @@
 
 	$effect(() => {
 		if (!playing) return;
-		const timer = setInterval(() => (t = t >= last ? from : t + 1), FRAME_MS);
+		const timer = setInterval(() => (t = t >= last ? from : t + 1), FRAME_MS / speed);
 		return () => clearInterval(timer);
 	});
 
@@ -515,12 +521,25 @@
 			</span>
 		</div>
 
-		<div class="flex items-center gap-2 text-(--text-2)">
+		<div class="flex rounded-xl border border-(--border) p-0.5" role="group" aria-label="Playback speed">
+			{#each SPEEDS as s (s)}
+				<button
+					type="button"
+					aria-pressed={speed === s}
+					onclick={() => (speed = remembered.speed = s)}
+					class={['tabular rounded-lg px-2 py-1 whitespace-nowrap', speed === s ? on : off]}
+				>
+					{s === 0.25 ? '¼' : s === 0.5 ? '½' : s}×
+				</button>
+			{/each}
+		</div>
+
+		<div class="flex flex-wrap items-center gap-2 text-(--text-2)">
 			{#if mode === 'topo'}
 				<span>Snow, {snowUnit(system)}</span>
 				<div class="flex">
 					{#each bands as b (b.cm)}
-						<span class="tabular w-7">
+						<span class="tabular w-6">
 							<span class="block h-3" style:background={css(b.colour, b.alpha)}></span>
 							<span class="block pt-0.5 leading-none">{b.label}</span>
 						</span>

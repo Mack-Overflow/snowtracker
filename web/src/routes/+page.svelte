@@ -118,7 +118,7 @@
 					<path d="M8 1.5c2.6 3.3 4.5 5.8 4.5 8.2a4.5 4.5 0 0 1-9 0c0-2.4 1.9-4.9 4.5-8.2Z" />
 				</svg>
 			</span>
-			Precip Calendar
+			Pow Tracker
 		</a>
 		<div class="flex flex-1 items-center gap-3">
 			<Search onselect={select} />

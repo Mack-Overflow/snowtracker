@@ -1,4 +1,4 @@
-# Precip Calendar
+# Pow Tracker
 
 Ten-day storm outlooks for towns, mid-mountain and summits anywhere in the world.
 It answers two questions: when is the next storm, and how likely is it?
