@@ -23,7 +23,7 @@
 
 	// The view and forecast chosen last, kept while moving from place to place.
 	const remembered: { mode: 'radar' | 'topo'; model: 'mean' | 'run'; speed: number } = {
-		mode: 'radar',
+		mode: 'topo',
 		model: 'mean',
 		speed: 1
 	};
@@ -188,7 +188,9 @@
 					firstLabel
 				);
 			}
-			if (!kernel || t < next.from || t > next.steps - 1) t = next.from;
+			// Topo opens on the full total; radar on the first hour.
+			if (!kernel || t < next.from || t > next.steps - 1)
+				t = mode === 'topo' ? Math.max(next.steps - 1, next.from) : next.from;
 			field = loaded;
 			peakCm = next.peakCm();
 			kernel = next;
@@ -409,7 +411,7 @@
 <div class="overflow-hidden rounded-2xl border border-(--border) bg-(--surface)">
 	<div class="flex flex-wrap items-center gap-2 border-b border-(--border) p-2 text-xs">
 		<div class="flex rounded-xl border border-(--border) p-0.5" role="group" aria-label="Map view">
-			{#each [['radar', 'Radar'], ['topo', 'Topo']] as const as [id, label] (id)}
+			{#each [['topo', 'Topo'], ['radar', 'Radar']] as const as [id, label] (id)}
 				<button type="button" aria-pressed={mode === id} onclick={() => setMode(id)} class={[toggle, mode === id ? on : off]}>
 					{label}
 				</button>

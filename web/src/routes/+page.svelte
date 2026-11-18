@@ -4,6 +4,7 @@
 	import { fetchForecast, placeParams, type Forecast, type Place } from '../lib/api';
 	import DayStrip from '../lib/components/DayStrip.svelte';
 	import HourlyChart from '../lib/components/HourlyChart.svelte';
+	import LoadingMessage from '../lib/components/LoadingMessage.svelte';
 	import SnowMap from '../lib/components/SnowMap.svelte';
 	import Section from '../lib/components/Section.svelte';
 	import Search from '../lib/components/Search.svelte';
@@ -148,7 +149,7 @@
 		<main class="flex flex-1 flex-col justify-center gap-8 pb-24">
 			<div>
 				<h1 class="max-w-xl text-3xl font-semibold tracking-tight sm:text-4xl">
-					When is the next storm, and how sure are we?
+					See upcoming snowstorm data anywhere in the world
 				</h1>
 				<p class="mt-3 max-w-xl text-(--text-2)">
 					Ten-day storm outlooks for towns, mid-mountain and summits anywhere, built from every
@@ -215,15 +216,19 @@
 			</button>
 		</main>
 	{:else if !data || !band}
-		<main class="animate-pulse space-y-4" aria-busy="true" aria-label="Loading forecast">
-			<div class="h-10 w-64 rounded-lg bg-(--surface-2)"></div>
-			<div class="h-48 rounded-2xl bg-(--surface-2)"></div>
-			<div class="h-56 rounded-2xl bg-(--surface-2)"></div>
+		<main class="space-y-4" aria-busy="true" aria-label="Loading forecast">
+			<LoadingMessage />
+			<div class="animate-pulse space-y-4">
+				<div class="h-10 w-64 rounded-lg bg-(--surface-2)"></div>
+				<div class="h-48 rounded-2xl bg-(--surface-2)"></div>
+				<div class="h-56 rounded-2xl bg-(--surface-2)"></div>
+			</div>
 		</main>
 	{:else}
 		<main class={['flex flex-col gap-8', loading && 'opacity-60']}>
 			<section>
 				<div>
+					{#if loading}<div class="mb-2"><LoadingMessage /></div>{/if}
 					<h1 class="text-3xl font-semibold tracking-tight">{place.name}</h1>
 					<p class="mt-1 text-sm text-(--text-2)">
 						{#if place.region}{place.region} ·{/if}
